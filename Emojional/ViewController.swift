@@ -12,9 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "prickly-pear.png")!)
+        }
+    
+
+    @IBAction func showMessage(sender: UIButton) {
+    
+        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: UIAlertController.Style.alert)
+        
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+        // in as much detail as possible
+    
+    
+        // pseudo-code the things that need to happen
+        // when a user clicks an emoji button
+    
     }
-
-
 }
 
