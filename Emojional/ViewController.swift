@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     let emojis = ["😄" : "Happy", "😍" : "Romantic"]
+    
+    let customMessages = ["Happy" : ["You're feeling great!", "Love the vibes", "You go girl!"], "Romantic" : ["Feelin the love", "Kisses", "Yay!"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +22,13 @@ class ViewController: UIViewController {
 
     @IBAction func showMessage(sender: UIButton) {
         
-        let selectedEmotion = sender.titleLabel?.text
+        let selectedEmotion = (sender.titleLabel?.text)!
+        let options = customMessages[emojis[selectedEmotion]!]!
+        
+        let rand = Int.random(in: 0..<options.count)
+        let emojiMessage = options[rand]
     
-        let alertController = UIAlertController(title: emojis[selectedEmotion!], message: "Message", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: emojis[selectedEmotion]!, message: emojiMessage, preferredStyle: UIAlertController.Style.alert)
         
         
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
